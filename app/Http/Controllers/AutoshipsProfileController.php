@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\AutoshipAPI;
+use App\Http\Requests;
+use App\Http\Resources\Autoship as AutoshipResource;
 
 class AutoshipsProfileController extends Controller
 {
@@ -16,12 +17,13 @@ class AutoshipsProfileController extends Controller
     {
         $autoShipAPI = new \DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI();
         $credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
-        $credentials->setUsername('Mark');
-        $credentials->setPassword('iQ5xzW00BL3wbZs%');
-        $result = $autoShipAPI->GetAutoshipProfiles(new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($credentials, '', 1114, ''));
+        $credentials->setUsername('ChandlerV');
+        $credentials->setPassword('1Xh0A@%EX3y1kCj48sSOcy');
+        $profiles = $autoShipAPI->GetAutoshipProfiles(new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($credentials, '', 1114, ''));
 
-        return view('pages.index', ['result' => $result]);
+        return view('pages.index', ['profiles' => $profiles]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +32,7 @@ class AutoshipsProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.create');
     }
 
     /**
@@ -41,7 +43,8 @@ class AutoshipsProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+
     }
 
     /**

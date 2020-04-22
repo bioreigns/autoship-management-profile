@@ -4,45 +4,51 @@
     
 <div class="col-12 col-sm-12 col-md-11 mx-auto bg-white shadow main-content">
 
-    <div class="title mb-5">
-        <h4>Autoship List</h4>
+    <div class="d-flex justify-content-between mb-5">
+        <div class="title">
+            <h4 class="mb-0">Autoship List</h4>
+        </div>
+        <div class="add-btn">
+            <a href="/add-authoship-profile" class="btn btn-primary text-white">Add Autoship Profile</a>
+        </div>
     </div>
 
-    <div class="table">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Profile ID</th>
-                <th scope="col">Start   Date</th>
-                <th scope="col">Stop Date</th>
-                <th scope="col">Next Ship Date</th>
-                <th scope="col">Period Type</th>
-                <th scope="col">Period Day</th>
-                <th scope="col">Ship Name</th>
-                <th scope="col">Ship Street 1</th>
-                <th scope="col">Ship Street 2</th>
-                <th scope="col">Ship City</th>
-                <th scope="col">Ship State</th>
-                <th scope="col">Ship Postal Code</th>
-                <th scope="col">Ship County</th>
-                <th scope="col">Ship Country</th>
-                <th scope="col">Ship Method</th>
-                <th scope="col">Override Shipping</th>
-                <th scope="col">Override Shipping Total</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($result as $profile)
-                    <tr>
-                    <th scope="row">{{$profile->ProfileID}}</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                @endforeach
-            </tbody>
-          </table>
+@foreach ($profiles as $profile)
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-6 font-weight-bold">
+                    <div>Profile ID : {{$profile->ProfileID}}</div>
+                    <div>Start Date : {{$profile->StartDate}}</div>
+                    <div>Stop Date : {{$profile->StopDate}}</div>
+                    <div>Next Ship Date : {{$profile->NextShipDate}}</div>
+                    <div>Period Type : {{$profile->PeriodType}}</div>
+                    <div>Period Day : {{$profile->PeriodDay}}</div>
+                    <div>Ship Name : {{$profile->ShipName}}</div>
+                    <div>Ship Street 1 : {{$profile->ShipStreet1}}</div>
+                    <div>Ship Street 2 : {{$profile->ShipStreet2}}</div>
+                    <div>Ship City : {{$profile->ShipCity}}</div>
+                    <div>Ship State : {{$profile->ShipState}}</div>
+                </div>
+
+                <div class="col-6 font-weight-bold">
+                    <div>Ship Postal Code : {{$profile->ShipPostalCode}}</div>
+                    <div>Ship County : {{$profile->ShipCounty}}</div>
+                    <div>Ship Country : {{$profile->ShipCountry}}</div>
+                    <div>Ship Method : {{$profile->ShipMethod}}</div>
+                    <div>Override Shipping : {{$profile->OverrideShipping}}</div>
+                    <div>Override Shipping Total : {{$profile->OverrideShippingTotal}}</div>
+                    <div>Payment Type : {{$profile->PaymentType}}</div>
+                    <div>Currency Type ID : {{$profile->CurrencyTypeID}}</div>
+                    <div>Ship Phone : {{$profile->ShipPhone}}</div>
+                    <div>Ship Method ID : {{$profile->ShipMethodID}}</div>
+                </div>
+
+            </div>
+        </div>
     </div>
+@endforeach
 
 </div>
 
