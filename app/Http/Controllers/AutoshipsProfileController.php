@@ -17,9 +17,9 @@ class AutoshipsProfileController extends Controller
     {
         $autoShipAPI = new \DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI();
         $credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
-        $credentials->setUsername('ChandlerV');
-        $credentials->setPassword('1Xh0A@%EX3y1kCj48sSOcy');
-        $profiles = $autoShipAPI->GetAutoshipProfiles(new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($credentials, '', 1114, ''));
+        $credentials->setUsername(config('bydesign.username'));
+        $credentials->setPassword(config('bydesign.password'));
+        $profiles = $autoShipAPI->GetAutoshipProfiles(new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($credentials, '', 1114));
 
         return view('pages.index', ['profiles' => $profiles]);
     }
@@ -43,7 +43,7 @@ class AutoshipsProfileController extends Controller
      */
     public function store(Request $request)
     {
-    
+
 
     }
 

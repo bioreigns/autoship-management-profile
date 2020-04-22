@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('pages.index');
 // });
 
-// Route::get('/', 'AutoshipsProfileController@index');
+Route::get('/', 'AutoshipsProfileController@index');
 
 // Route::get('/add-authoship-profile', 'AutoshipsProfileController@create');
 
