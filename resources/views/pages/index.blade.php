@@ -25,7 +25,7 @@
                 <div class="col-12 col-md-6">
 
                     <div class="card">
-                        <h5 class="card-header">Autoship Dates Information</h5>
+                        <h5 class="card-header">Dates Information</h5>
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
 
@@ -80,7 +80,7 @@
 
                 <div class="col-12 col-md-6">
                   <div class="card">
-                    <h5 class="card-header">Autoship Information</h5>
+                    <h5 class="card-header">Shipment Information</h5>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
 
