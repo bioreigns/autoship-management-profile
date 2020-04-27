@@ -8,6 +8,16 @@ use App\Http\Resources\Autoship as AutoshipResource;
 
 class AutoshipsProfileController extends Controller
 {
+
+    // public function __construct($Credentials, $ProfileID, $RepNumber, $CustomerNumber)
+    // {
+    //     // $Credentials->autoshipAPI = new \DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI();
+    //     // $credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
+    //     $this->Credentials = $Credentials;
+    //     $this->ProfileID = $ProfileID;
+    //     $this->RepNumber = $RepNumber;
+    //     $this->CustomerNumber = $CustomerNumber;
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -16,15 +26,19 @@ class AutoshipsProfileController extends Controller
     public function index()
     {
         $autoShipAPI = new \DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI();
-        $credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
-        $credentials->setUsername(config('bydesign.username'));
-        $credentials->setPassword(config('bydesign.password'));
-        $profiles = $autoShipAPI->GetAutoshipProfiles(new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($credentials, '', 1114));
+        $Credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
+        $Credentials->setUsername(config('bydesign.username'));
+        $Credentials->setPassword(config('bydesign.password'));
+        
+        $profiles = $autoShipAPI->GetAutoshipProfiles(new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($Credentials, '1114', ''))->getGetAutoshipProfilesResult();
 
-        return view('pages.index', ['profiles' => $profiles]);
+        $items = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileItemDetails($Credentials, '' , 1114, '');
+        $profileItems = $autoShipAPI->GetProfileItemDetails($items)->getGetProfileItemDetailsResult();
+
+        // dd($profiles->getGetAutoshipProfilesResult());
+        // dd($profileitems->getGetProfileItemDetailsResult());
+        return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
     }
-
-
     /**
      * Show the form for creating a new resource.
      *
