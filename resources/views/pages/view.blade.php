@@ -6,20 +6,22 @@
     
     <div class="mb-5">
         <div class="divider d-flex justify-content-between">
-            <h4 class="font-weight-bold">AUTOSHIP PROFILES LIST</h4>
-            <a href="/add-authoship-profile" class="link font-weight-bold">ADD AUTOSHIP PROFILE</a>
+            <h4 class="font-weight-bold">AUTOSHIP PROFILES INFO </h4>
+            <div class="">
+                <a href="/edit-authoship-profile" class="link font-weight-bold mr-3">EDIT AUTOSHIP PROFILE</a>
+                <a href="/" class="link font-weight-bold">BACK</a>
+            </div>
         </div>
         <hr class="seperator mr-auto">
     </div>
 
-@foreach ($profiles as $profile)
-    <div class="card my-5">
+    <div class="card border-0 my-5">
         <div class="card-body">
 
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h5 class="font-weight-bold title-style m-0">AUTOSHIP PROFILE DETAILS</h5>
-                <a href="/view-authoship-profile" class="btn btn-outline-gold m-0">VIEW AUTOSHIP PROFILE</a>
-            </div>
+            {{-- <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="font-weight-bold title-style m-0">AUTOSHIP PROFILE INFO</h5>
+                <a href="" class="btn btn-outline-gold m-0">EDIT PROFILE</a>
+            </div> --}}
 
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -31,27 +33,27 @@
 
                                 <li class="list-group-item d-flex justify-content-between p-1">
                                   <span class="font-weight-bold">Start Date : </span> 
-                                  <span>{{$profile->getStartDate()->format('Y-m-d')}}</span>
+                                  {{-- <span>{{$profile->getStartDate()->format('Y-m-d')}}</span> --}}
                                 </li>
                                 
                                 <li class="list-group-item d-flex justify-content-between p-1">
                                   <span class="font-weight-bold">Stop Date : </span> 
-                                  <span>{{$profile->getStopDate()->format('Y-m-d')}}</span>
+                                  {{-- <span>{{$profile->getStopDate()->format('Y-m-d')}}</span> --}}
                                 </li>
                                 
                                 <li class="list-group-item d-flex justify-content-between p-1">
                                   <span class="font-weight-bold">Next Ship Date : </span> 
-                                  <span>{{$profile->getNextShipDate()->format('Y-m-d')}}</span>
+                                  {{-- <span>{{$profile->getNextShipDate()->format('Y-m-d')}}</span> --}}
                                 </li>
                                 
                                 <li class="list-group-item d-flex justify-content-between p-1">
                                   <span class="font-weight-bold">Period Type : </span> 
-                                  <span>{{$profile->getPeriodType()}}</span>
+                                  {{-- <span>{{$profile->getPeriodType()}}</span> --}}
                                 </li>
                                 
                                 <li class="list-group-item d-flex justify-content-between p-1">
                                   <span class="font-weight-bold">Period Day : </span> 
-                                  <span>{{$profile->getPeriodDay()}}</span>
+                                  {{-- <span>{{$profile->getPeriodDay()}}</span> --}}
                                 </li>
                             </ul>
                         </div>
@@ -64,12 +66,12 @@
   
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Payment Type : </span> 
-                              <span>{{$profile->getPaymentType()}}</span>
+                              {{-- <span>{{$profile->getPaymentType()}}</span> --}}
                             </li>
   
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Currency Type ID : </span> 
-                              <span>{{$profile->getCurrencyTypeID()}}</span>
+                              {{-- <span>{{$profile->getCurrencyTypeID()}}</span> --}}
                             </li>
   
                         </ul>
@@ -86,67 +88,67 @@
 
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship Name : </span> 
-                              <span>{{$profile->getShipName()}}</span>
+                              {{-- <span>{{$profile->getShipName()}}</span> --}}
                             </li>
                             
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship Street 1 : </span> 
-                              <span>{{$profile->getShipStreet1()}}</span>
+                              {{-- <span>{{$profile->getShipStreet1()}}</span> --}}
                             </li>
                             
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship Street 2 : </span> 
-                              <span>{{$profile->getShipStreet2()}}</span>
+                              {{-- <span>{{$profile->getShipStreet2()}}</span> --}}
                             </li>
                             
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship City : </span> 
-                              <span>{{$profile->getShipCity()}}</span>
+                              {{-- <span>{{$profile->getShipCity()}}</span> --}}
                             </li>
                             
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship State : </span> 
-                              <span>{{$profile->getShipState()}}</span>
+                              {{-- <span>{{$profile->getShipState()}}</span> --}}
                             </li>
 
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship Postal Code : </span> 
-                              <span>{{$profile->getShipPostalCode()}}</span>
+                              {{-- <span>{{$profile->getShipPostalCode()}}</span> --}}
                             </li>
     
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship County : </span> 
-                              <span>{{$profile->getShipCounty()}}</span>
+                              {{-- <span>{{$profile->getShipCounty()}}</span> --}}
                             </li>
     
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship Country : </span> 
-                              <span>{{$profile->getShipCountry()}}</span>
+                              {{-- <span>{{$profile->getShipCountry()}}</span> --}}
                             </li>
     
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship Method : </span> 
-                              <span>{{$profile->getShipMethod()}}</span>
+                              {{-- <span>{{$profile->getShipMethod()}}</span> --}}
                             </li>
 
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship Phone : </span> 
-                              <span>{{$profile->getShipPhone()}}</span>
+                              {{-- <span>{{$profile->getShipPhone()}}</span> --}}
                             </li>
   
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Ship Method ID : </span> 
-                              <span>{{$profile->getShipMethodID()}}</span>
+                              {{-- <span>{{$profile->getShipMethodID()}}</span> --}}
                             </li>
     
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Override Shipping : </span> 
-                              <span>{{$profile->getOverrideShipping()}}</span>
+                              {{-- <span>{{$profile->getOverrideShipping()}}</span> --}}
                             </li>
     
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Override Shipping Total : </span> 
-                              <span>{{$profile->getOverrideShippingTotal()}}</span>
+                              {{-- <span>{{$profile->getOverrideShippingTotal()}}</span> --}}
                             </li>
 
                         </ul>
@@ -157,7 +159,7 @@
 
             </div>
 
-            <hr class="mt-5 seperator-full">
+            {{-- <hr class="mt-5 seperator-full">
             
                 <div class="items my-5">
                     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -191,11 +193,10 @@
                         </div>
                         @endforeach
                     </div>
-                </div>
+                </div> --}}
            
         </div>
     </div>
-@endforeach
 
 </div>
 

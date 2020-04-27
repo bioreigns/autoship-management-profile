@@ -67,9 +67,9 @@ class AutoshipsProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('pages.view');
     }
 
     /**
@@ -78,9 +78,9 @@ class AutoshipsProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('pages.edit');
     }
 
     /**

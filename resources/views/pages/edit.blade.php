@@ -6,18 +6,18 @@
 
     <div class="mb-5">
         <div class="divider d-flex justify-content-between">
-            <h4 class="font-weight-bold">CREATE AUTOSHIP PROFILE</h4>
+            <h4 class="font-weight-bold">EDIT AUTOSHIP PROFILE</h4>
             <a href="/" class="link font-weight-bold">BACK</a>
         </div>
         <hr class="seperator mr-auto">
     </div>
 
-    <div class="card create-profile-fill-up">
+    <div class="card border-0 create-profile-fill-up">
         <div class="card-body">
 
-            <div class="d-flex justify-content-between align-items-center mb-4">
+            {{-- <div class="d-flex justify-content-between align-items-center mb-4">
                 <h5 class="font-weight-bold title-style m-0">FILL-UP FORM</h5>
-            </div>
+            </div> --}}
 
             <form>
                 <div class="row">
@@ -191,7 +191,7 @@
                         </div>
 
                         <div class="form-group float-right">
-                            <button class="btn btn-gold font-weight-bold">NEXT</button>
+                            <button class="btn btn-gold font-weight-bold">UPDATE</button>
                         </div>
 
                     </div>
