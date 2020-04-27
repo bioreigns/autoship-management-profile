@@ -22,7 +22,7 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-md-6 px-5">
+                <div class="col-12 col-md-6">
 
                     <div class="card">
                         <h5 class="card-header">Autoship Dates Information</h5>
@@ -57,96 +57,103 @@
                         </div>
                     </div>
 
-                    <div class="card">
-                        <h5 class="card-header">Autoship Dates Information</h5>
-                        <div class="card-body">
-                            <ul class="list-group list-group-flush">
-
-                                <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Start Date : </span> 
-                                  <span>{{$profile->getStartDate()->format('Y-m-d')}}</span>
-                                </li>
-                                
-                                <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Stop Date : </span> 
-                                  <span>{{$profile->getStopDate()->format('Y-m-d')}}</span>
-                                </li>
-                                
-                                <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Next Ship Date : </span> 
-                                  <span>{{$profile->getNextShipDate()->format('Y-m-d')}}</span>
-                                </li>
-                                
-                                <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Period Type : </span> 
-                                  <span>{{$profile->getPeriodType()}}</span>
-                                </li>
-                                
-                                <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Period Day : </span> 
-                                  <span>{{$profile->getPeriodDay()}}</span>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="card my-3">
+                      <h5 class="card-header">Payment Information</h5>
+                      <div class="card-body">
+                        <ul class="list-group list-group-flush">
+  
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Payment Type : </span> 
+                              <span>{{$profile->getPaymentType()}}</span>
+                            </li>
+  
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Currency Type ID : </span> 
+                              <span>{{$profile->getCurrencyTypeID()}}</span>
+                            </li>
+  
+                        </ul>
+                      </div>
                     </div>
 
                 </div>
 
-                <div class="col-12 col-md-6 px-5">
-                    <ul class="list-group list-group-flush">
+                <div class="col-12 col-md-6">
+                  <div class="card">
+                    <h5 class="card-header">Autoship Information</h5>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
 
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Ship Postal Code : </span> 
-                          <span>{{$profile->getShipPostalCode()}}</span>
-                        </li>
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship Name : </span> 
+                              <span>{{$profile->getShipName()}}</span>
+                            </li>
+                            
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship Street 1 : </span> 
+                              <span>{{$profile->getShipStreet1()}}</span>
+                            </li>
+                            
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship Street 2 : </span> 
+                              <span>{{$profile->getShipStreet2()}}</span>
+                            </li>
+                            
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship City : </span> 
+                              <span>{{$profile->getShipCity()}}</span>
+                            </li>
+                            
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship State : </span> 
+                              <span>{{$profile->getShipState()}}</span>
+                            </li>
 
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Ship County : </span> 
-                          <span>{{$profile->getShipCounty()}}</span>
-                        </li>
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship Postal Code : </span> 
+                              <span>{{$profile->getShipPostalCode()}}</span>
+                            </li>
+    
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship County : </span> 
+                              <span>{{$profile->getShipCounty()}}</span>
+                            </li>
+    
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship Country : </span> 
+                              <span>{{$profile->getShipCountry()}}</span>
+                            </li>
+    
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship Method : </span> 
+                              <span>{{$profile->getShipMethod()}}</span>
+                            </li>
 
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Ship Country : </span> 
-                          <span>{{$profile->getShipCountry()}}</span>
-                        </li>
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship Phone : </span> 
+                              <span>{{$profile->getShipPhone()}}</span>
+                            </li>
+  
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Ship Method ID : </span> 
+                              <span>{{$profile->getShipMethodID()}}</span>
+                            </li>
+    
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Override Shipping : </span> 
+                              <span>{{$profile->getOverrideShipping()}}</span>
+                            </li>
+    
+                            <li class="list-group-item d-flex justify-content-between p-1">
+                              <span class="font-weight-bold">Override Shipping Total : </span> 
+                              <span>{{$profile->getOverrideShippingTotal()}}</span>
+                            </li>
 
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Ship Method : </span> 
-                          <span>{{$profile->getShipMethod()}}</span>
-                        </li>
-
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Override Shipping : </span> 
-                          <span>{{$profile->getOverrideShipping()}}</span>
-                        </li>
-
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Override Shipping Total : </span> 
-                          <span>{{$profile->getOverrideShippingTotal()}}</span>
-                        </li>
-
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Payment Type : </span> 
-                          <span>{{$profile->getPaymentType()}}</span>
-                        </li>
-
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Currency Type ID : </span> 
-                          <span>{{$profile->getCurrencyTypeID()}}</span>
-                        </li>
-
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Ship Phone : </span> 
-                          <span>{{$profile->getShipPhone()}}</span>
-                        </li>
-
-                        <li class="list-group-item d-flex justify-content-between p-1">
-                          <span class="font-weight-bold">Ship Method ID : </span> 
-                          <span>{{$profile->getShipMethodID()}}</span>
-                        </li>
-                    </ul>
-
+                        </ul>
+                    </div>
                 </div>
+
+              </div>
 
             </div>
 
