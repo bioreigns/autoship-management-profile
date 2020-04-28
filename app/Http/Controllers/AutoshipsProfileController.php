@@ -33,10 +33,13 @@ class AutoshipsProfileController extends Controller
         $profileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($Credentials, '1114', '');
         $profiles = $autoShipAPI->GetAutoshipProfiles($profileAPI)->getGetAutoshipProfilesResult();
 
-        // $profileItemsID = array();
+        // $profileItemsID = [];
+
+        // $profileItemsID[$profiles->getProfileID()] = [];
 
         foreach($profiles as $profileid){
 
+            // $profileItemsID[] = $profileid->getProfileID();
             $id = $profileid->getProfileID();
 
             // dd($id);
