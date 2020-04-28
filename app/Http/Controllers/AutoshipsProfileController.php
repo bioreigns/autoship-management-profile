@@ -21,7 +21,7 @@ class AutoshipsProfileController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -29,7 +29,7 @@ class AutoshipsProfileController extends Controller
         $Credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
         $Credentials->setUsername(config('bydesign.username'));
         $Credentials->setPassword(config('bydesign.password'));
-        
+
         $profileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($Credentials, '1114', '');
         $profiles = $autoShipAPI->GetAutoshipProfiles($profileAPI)->getGetAutoshipProfilesResult();
 
@@ -37,6 +37,7 @@ class AutoshipsProfileController extends Controller
 
         // $profileItemsID[$profiles->getProfileID()] = [];
 
+        $profileItems = [];
         foreach($profiles as $profileid){
 
             // $profileItemsID[] = $profileid->getProfileID();
@@ -45,11 +46,12 @@ class AutoshipsProfileController extends Controller
             // dd($id);
 
             $itemsAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileItemDetails($Credentials, $id);
-            $profileItems = $autoShipAPI->GetProfileItemDetails($itemsAPI)->getGetProfileItemDetailsResult();
+            $profileItemResult = $autoShipAPI->GetProfileItemDetails($itemsAPI)->getGetProfileItemDetailsResult();
 
-            return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
+            $profileItems[] = $profileItemResult;
+
         }
-
+        return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
         //  return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
     }
     /**
