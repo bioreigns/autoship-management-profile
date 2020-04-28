@@ -30,14 +30,24 @@ class AutoshipsProfileController extends Controller
         $Credentials->setUsername(config('bydesign.username'));
         $Credentials->setPassword(config('bydesign.password'));
         
-        $profiles = $autoShipAPI->GetAutoshipProfiles(new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($Credentials, '1114', ''))->getGetAutoshipProfilesResult();
+        $profileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($Credentials, '1114', '');
+        $profiles = $autoShipAPI->GetAutoshipProfiles($profileAPI)->getGetAutoshipProfilesResult();
 
-        $items = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileItemDetails($Credentials, '' , 1114, '');
-        $profileItems = $autoShipAPI->GetProfileItemDetails($items)->getGetProfileItemDetailsResult();
+        // $profileItemsID = array();
 
-        // dd($profiles->getGetAutoshipProfilesResult());
-        // dd($profileitems->getGetProfileItemDetailsResult());
-        return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
+        foreach($profiles as $profileid){
+
+            $id = $profileid->getProfileID();
+
+            // dd($id);
+
+            $itemsAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileItemDetails($Credentials, $id);
+            $profileItems = $autoShipAPI->GetProfileItemDetails($itemsAPI)->getGetProfileItemDetailsResult();
+
+            return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
+        }
+
+        //  return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
     }
     /**
      * Show the form for creating a new resource.

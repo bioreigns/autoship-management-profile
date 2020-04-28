@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'AutoshipsProfileController@index');
 Route::get('/add-authoship-profile', 'AutoshipsProfileController@create');
+Route::get('/add-authoship-profile', 'AutoshipsProfileController@returnProfile');
 Route::get('/view-authoship-profile', 'AutoshipsProfileController@show');
 Route::get('/edit-authoship-profile', 'AutoshipsProfileController@edit');
 
