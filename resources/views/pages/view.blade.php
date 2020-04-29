@@ -159,45 +159,85 @@
 
             </div>
 
-            {{-- <hr class="mt-5 seperator-full">
+            <hr class="mt-5 seperator-full">
             
-                <div class="items my-5">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="font-weight-bold title-style m-0">AUTOSHIP PROFILE ITEMS</h5>
-                        <h5 class="font-weight-bold m-0 d-flex align-items-center">
-                            <span class="mr-1">Status:</span> 
-                            <span class="badge badge-success">Active</span>
-                        </h5>
-                    </div>
-                    <div class="row">
-
-                        @foreach ($profileItems as $profileItem)
-                        <div class="col-6 col-sm-4 col-md-3">
-                            <div class="card border-0 shadow-sm">
-                                <img class="card-img-top" src="https://picsum.photos/200/200" alt="Card image cap">
-                                <div class="card-body">
-                                    {{$profileItem->getProfileDetailID()}}
-                                  <h5 class="card-title">{{$profileItem->getDescription()}}</h5>
-                                  <div class="">
-                                    <ul class="list-unstyled">
-                                        <li class="list-item d-flex justify-content-between">
-                                            <span class="font-weight-bold">Quantity: </span> 2
-                                        </li>
-                                        <li class="list-item d-flex justify-content-between">
-                                            <span class="font-weight-bold">Price: </span> $299.00
-                                        </li>
-                                      </ul>
-                                  </div>
-                                </div>
-                              </div>
+            <div class="items-wrapper">
+              @foreach ($profileItems[$key] as $profileItem)
+                  @if($profileItem->getItemNumber() == null)
+                    No Item found.
+                      @continue
+                  @endif
+                  <div class="card border-0 shadow-sm my-3">
+                      <div class="row">
+                        <div class="col-4">
+                          <img class="img-fluid" src="https://extranet.bydesign.com/Bioreigns/Shopping/Images/{{ $profileItem->getSmallImage() }}" alt="Card image cap">
                         </div>
-                        @endforeach
+
+                        <div class="col-8">
+                          <div class="card-body">
+                            {{$profileItem->getProfileDetailID()}}
+                          <h5 class="card-title">{{$profileItem->getDescription()}}</h5>
+                              <div class="">
+                                <ul class="list-unstyled">
+                                    <li class="list-item d-flex justify-content-between">
+                                        <span class="font-weight-bold">Quantity: </span> {{$profileItem->getQuantity()}}
+                                    </li>
+                                    <li class="list-item d-flex justify-content-between">
+                                        <span class="font-weight-bold">Price: </span> $ {{$profileItem->getPrice()}}
+                                    </li>
+                                  </ul>
+                              </div>
+                          </div>
+                        </div>
+
+                      </div>
+
                     </div>
-                </div> --}}
+           
+              @endforeach
+          
+          {{-- end items wrapper --}}
+            </div>
            
         </div>
     </div>
 
 </div>
+
+{{-- <div class="items-wrapper">
+  @foreach ($profileItems[$key] as $profileItem)
+      @if($profileItem->getItemNumber() == null)
+        0
+      @endif
+
+      <div class="card border-0 shadow-sm my-3">
+          <div class="row">
+            <div class="col-4">
+              <img class="img-fluid" src="https://extranet.bydesign.com/Bioreigns/Shopping/Images/{{ $profileItem->getSmallImage() }}" alt="Card image cap">
+            </div>
+
+            <div class="col-8">
+              <div class="card-body">
+                {{$profileItem->getProfileDetailID()}}
+              <h5 class="card-title">{{$profileItem->getDescription()}}</h5>
+                  <div class="">
+                    <ul class="list-unstyled">
+                        <li class="list-item d-flex justify-content-between">
+                            <span class="font-weight-bold">Quantity: </span> {{$profileItem->getQuantity()}}
+                        </li>
+                        <li class="list-item d-flex justify-content-between">
+                            <span class="font-weight-bold">Price: </span> $ {{$profileItem->getPrice()}}
+                        </li>
+                      </ul>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+    </div>
+
+  @endforeach
+
+</div> --}}
 
 @endsection

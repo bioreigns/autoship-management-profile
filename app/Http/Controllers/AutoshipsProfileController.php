@@ -30,8 +30,11 @@ class AutoshipsProfileController extends Controller
         $Credentials->setUsername(config('bydesign.username'));
         $Credentials->setPassword(config('bydesign.password'));
 
+        // get profiles
         $profileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipProfiles($Credentials, '1114', '');
         $profiles = $autoShipAPI->GetAutoshipProfiles($profileAPI)->getGetAutoshipProfilesResult();
+
+        // get profile details id
 
         // $profileItemsID = [];
 
@@ -52,7 +55,6 @@ class AutoshipsProfileController extends Controller
 
         }
         return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
-        //  return view('pages.index', ['profiles' => $profiles , 'profileItems' => $profileItems]);
     }
     /**
      * Show the form for creating a new resource.
@@ -84,6 +86,7 @@ class AutoshipsProfileController extends Controller
      */
     public function show()
     {
+
         return view('pages.view');
     }
 
