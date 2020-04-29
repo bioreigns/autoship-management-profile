@@ -24,7 +24,7 @@
 
                 {{-- profile info --}}
                   <div class="card shadow-sm border-0 mb-3">
-                      <h5 class="card-header border-0">Autoship Information</h5>
+                      <h5 class="card-header border-0">Profile Information</h5>
                       <div class="card-body">
                           <ul class="list-group list-group-flush">
 
@@ -59,7 +59,7 @@
 
                 {{-- items table --}}
                     <div class="card shadow-sm border-0">
-                        <h5 class="card-header border-0">Items Information</h5>
+                        <h5 class="card-header border-0">Profile`s Item Information</h5>
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
 
@@ -88,9 +88,9 @@
 
           
           {{-- button --}}
-          <div class="">
+          <div class="text-center mt-4">
             {{-- <h5 class="font-weight-bold title-style m-0">AUTOSHIP PROFILE DETAILS</h5> --}}
-            <a href="/view-authoship-profile" class="btn btn-gold float-right m-0">VIEW AUTOSHIP PROFILE</a>
+            <a href="/view-authoship-profile" class="btn btn-gold font-weight-bold">VIEW AUTOSHIP PROFILE</a>
         </div>
 
 

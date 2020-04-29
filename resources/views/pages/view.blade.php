@@ -162,28 +162,28 @@
             <hr class="mt-5 seperator-full">
             
             <div class="items-wrapper">
-              @foreach ($profileItems[$key] as $profileItem)
+              {{-- @foreach ($profileItems[$key] as $profileItem)
                   @if($profileItem->getItemNumber() == null)
                     No Item found.
                       @continue
-                  @endif
+                  @endif --}}
                   <div class="card border-0 shadow-sm my-3">
                       <div class="row">
                         <div class="col-4">
-                          <img class="img-fluid" src="https://extranet.bydesign.com/Bioreigns/Shopping/Images/{{ $profileItem->getSmallImage() }}" alt="Card image cap">
+                          {{-- <img class="img-fluid" src="https://extranet.bydesign.com/Bioreigns/Shopping/Images/{{ $profileItem->getSmallImage() }}" alt="Card image cap"> --}}
                         </div>
 
                         <div class="col-8">
                           <div class="card-body">
-                            {{$profileItem->getProfileDetailID()}}
-                          <h5 class="card-title">{{$profileItem->getDescription()}}</h5>
+                            {{-- {{$profileItem->getProfileDetailID()}} --}}
+                          {{-- <h5 class="card-title">{{$profileItem->getDescription()}}</h5> --}}
                               <div class="">
                                 <ul class="list-unstyled">
                                     <li class="list-item d-flex justify-content-between">
-                                        <span class="font-weight-bold">Quantity: </span> {{$profileItem->getQuantity()}}
+                                        {{-- <span class="font-weight-bold">Quantity: </span> {{$profileItem->getQuantity()}} --}}
                                     </li>
                                     <li class="list-item d-flex justify-content-between">
-                                        <span class="font-weight-bold">Price: </span> $ {{$profileItem->getPrice()}}
+                                        {{-- <span class="font-weight-bold">Price: </span> $ {{$profileItem->getPrice()}} --}}
                                     </li>
                                   </ul>
                               </div>
@@ -194,7 +194,7 @@
 
                     </div>
            
-              @endforeach
+              {{-- @endforeach --}}
           
           {{-- end items wrapper --}}
             </div>
