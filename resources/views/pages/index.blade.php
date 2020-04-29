@@ -90,7 +90,7 @@
           {{-- button --}}
           <div class="text-center mt-4">
             {{-- <h5 class="font-weight-bold title-style m-0">AUTOSHIP PROFILE DETAILS</h5> --}}
-            <a href="/view-authoship-profile" class="btn btn-gold font-weight-bold">VIEW AUTOSHIP PROFILE</a>
+          <a href="/view-authoship-profile/{{$profile->getProfileID()}}" class="btn btn-gold font-weight-bold">VIEW AUTOSHIP PROFILE</a>
         </div>
 
 

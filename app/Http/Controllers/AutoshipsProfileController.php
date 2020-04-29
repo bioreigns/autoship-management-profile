@@ -84,10 +84,24 @@ class AutoshipsProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
+        $autoShipAPI = new \DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI();
+        $Credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
+        $Credentials->setUsername(config('bydesign.username'));
+        $Credentials->setPassword(config('bydesign.password'));
 
-        return view('pages.view');
+        // get profile details
+        $profileDetailsAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileDetails($Credentials, $id);
+        $profileDetailsResult = $autoShipAPI->GetProfileDetails($profileDetailsAPI)->getGetProfileDetailsResult();
+        $profileDetails = $profileDetailsResult;
+
+        //get profile's items
+        $itemsAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileItemDetails($Credentials, $id);
+        $profileItemResult = $autoShipAPI->GetProfileItemDetails($itemsAPI)->getGetProfileItemDetailsResult();
+        $profileItems = $profileItemResult;
+
+        return view('pages.view', ['profileDetails' => $profileDetails,'profileItems' => $profileItems]);
     }
 
     /**
