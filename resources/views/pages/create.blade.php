@@ -67,7 +67,7 @@
 
                                         <div class="form-group">
                                             <label class="font-weight-bold" for="lastName">Last Name : </label>
-                                            <input type="text" class="form-control" name="lastName" id="shipName" aria-describedby="lastName">
+                                            <input type="text" class="form-control" name="lastName" id="lastName" aria-describedby="lastName">
                                         </div>
 
                                         <div class="form-group">
@@ -171,7 +171,7 @@
                                             <td>{{ $item->getVolume2() }}</td>
                                             <td>{{ $item->getPrice() }}</td>
                                             <td>
-                                                <input type="number" class="form-control qty" name="items[{{ $item->getItemNumber() }}][quantity]" value="0">
+                                                <input type="number" class="form-control qty" name="items[{{ $item->getItemNumber() }}]" value="0">
                                             </td>
                                         </tr>
                                     @endforeach

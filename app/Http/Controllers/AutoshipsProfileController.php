@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use DataHead\ByDesignAPI\AutoshipAPI\AddItem;
+use DataHead\ByDesignAPI\AutoshipAPI\AddPaymentProfile_CC;
+use DataHead\ByDesignAPI\AutoshipAPI\AutoshipAddress;
 use DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI;
+use DataHead\ByDesignAPI\AutoshipAPI\AutoShipCCProfile;
 use DataHead\ByDesignAPI\AutoshipAPI\Credentials;
 use DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipItems;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class AutoshipsProfileController extends Controller
 {
@@ -74,12 +79,14 @@ class AutoshipsProfileController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     public function store(Request $request)
     {
         $validatedInput = $request->validate([
             // 'BCNumber' => 'required',
+            'startDate' => 'required|date',
+            'stopDate' => 'required|date',
             'firstName' => 'required',
             'lastName' => 'required',
             'street1' => 'required',
@@ -89,58 +96,53 @@ class AutoshipsProfileController extends Controller
             'county' => 'required',
             'country' => 'required',
             'phone' => 'required',
-            'startDate' => 'required',
-            'stopDate' => 'required',
-            'PeriodDay' => 'required',
-            'OverrideShipping' => 'required',
-            'ShippingTotal' => 'required',
+            'items' => 'required'
         ]);
 
-        if($validatedInput == true){
-            // $BCNumber = $request->get('BCNumber');
-            // ship address
-            $firstName = $request->get('firstName');
-            $lastName = $request->get('lastName');
-            $street1 = $request->get('street1');
-            $street2 = $request->get('street2');
-            $city = $request->get('city');
-            $state = $request->get('state');
-            $postalCode = $request->get('postalCode');
-            $county = $request->get('county');
-            $country = $request->get('country');
-            $phone = $request->get('phone');
+        // Create the AutoShip address object
+        $autoShipAddress = new AutoshipAddress();
+        $autoShipAddress->setFirstname($request->post('firstName'));
+        $autoShipAddress->setLastname($request->post('lastName'));
+        $autoShipAddress->setStreet1($request->post('street1'));
+        $autoShipAddress->setCity($request->post('city'));
+        $autoShipAddress->setState($request->post('state'));
+        $autoShipAddress->setPostalCode($request->post('postalCode'));
+        $autoShipAddress->setCounty($request->post('county'));
+        $autoShipAddress->setCountry($request->post('country'));
+        $autoShipAddress->setPhone($request->post('phone'));
 
-            $StartDate = $request->get('startDate');
-            $StopDate = $request->get('stopDate');
-            $PeriodDay = $request->get('periodDay');
-            $OverrideShipping = $request->get('overrideShipping');
-            $ShippingTotal = $request->get('shippingTotal');
-        }else{
-           return redirect()->route('/');
-        }
+        if($request->has('street2'))
+            $autoShipAddress->setStreet2($request->post('street2'));
 
-        $autoShipAPI = new \DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI();
-        $Credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
-        $Credentials->setUsername(config('bydesign.username'));
-        $Credentials->setPassword(config('bydesign.password'));
-
-        $ShipAddress = new \DataHead\ByDesignAPI\AutoshipAPI\AutoshipAddress();
-        $ShipAddress->setFirstname($firstName);
-        $ShipAddress->setLastname($lastName);
-        $ShipAddress->setStreet1($street1);
-        $ShipAddress->setStreet2($street2);
-        $ShipAddress->setCity($city);
-        $ShipAddress->setState($state);
-        $ShipAddress->setPostalCode($postalCode);
-        $ShipAddress->setCounty($county);
-        $ShipAddress->setCountry($country);
-        $ShipAddress->setPhone($phone);
+        $startDate = Carbon::parse($request->post('startDate'));
+        $endDate = Carbon::parse($request->post('stopDate'));
 
         // get create new profile
-        $createRepProfileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\CreateRepProfile($Credentials, '1114', 1 , $ShipAddress, $StartDate, $StopDate, 'Monthly', $PeriodDay, 1009, 1 , $OverrideShipping, $ShippingTotal);
-        $CreateRepProfileResult = $autoShipAPI->CreateRepProfile($createRepProfileAPI)->GetCreateRepProfileResult();
+        $createRepProfileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\CreateRepProfile($this->credentials, '1114', 1, $autoShipAddress, $startDate, $endDate, 1, $startDate->day, 1009, 1 , "", "");
+        $createRepProfileResult = $this->autoShipAPI->CreateRepProfile($createRepProfileAPI)->GetCreateRepProfileResult();
 
-        return redirect()->route('/')->with($CreateRepProfileResult);
+        if($createRepProfileResult->getSuccess() != 1) {
+            $requestParams = new GetAutoshipItems($this->credentials, "", "1114", "");
+            $items = $this->autoShipAPI->GetAutoshipItems($requestParams);
+            return view('pages.create', ['items' => $items])->withErrors(['error' => $createRepProfileResult->getMessage()]);
+        }
+
+        // Gets the new profile's ID number
+        $profileId = $createRepProfileResult->getMessage();
+
+        // Loop through the products from post and add them to the profile IF the quantity is greater than 0
+        foreach ($request->post('items') as $key => $value) {
+            if($value <= 0)
+                continue;
+            $requestParams = new AddItem($this->credentials, $profileId, $key,$value);
+            $this->autoShipAPI->AddItem($requestParams);
+        }
+
+        $paymentInfo = new AutoShipCCProfile();
+        $requestParams = new AddPaymentProfile_CC($this->credentials, $profileId, $paymentInfo);
+        $this->autoShipAPI->AddPaymentProfile_CC($requestParams);
+
+        return response()->redirectTo("/view-authoship-profile/$profileId");
     }
 
     /**
