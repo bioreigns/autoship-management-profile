@@ -6,7 +6,7 @@
 
     <div class="mb-5">
         <div class="divider d-flex justify-content-between">
-            <h4 class="font-weight-bold">AUTOSHIP PROFILES INFO </h4>
+            <h4 class="font-weight-bold">PROFILE INFO</h4>
             <div class="">
                 <a href="/edit-authoship-profile" class="link font-weight-bold mr-3">EDIT AUTOSHIP PROFILE</a>
                 <a href="/" class="link font-weight-bold">BACK</a>
@@ -36,10 +36,10 @@
                                   <span>{{$profileDetails->getStartDate()->format('Y-m-d')}}</span>
                                 </li>
 
-                                <li class="list-group-item d-flex justify-content-between p-1">
+                                {{--<li class="list-group-item d-flex justify-content-between p-1">
                                   <span class="font-weight-bold">Stop Date : </span>
                                   <span>{{$profileDetails->getStopDate()->format('Y-m-d')}}</span>
-                                </li>
+                                </li>--}}
 
                                 <li class="list-group-item d-flex justify-content-between p-1">
                                   <span class="font-weight-bold">Next Ship Date : </span>
@@ -51,10 +51,10 @@
                                   <span>{{$profileDetails->getPeriodType()}}</span>
                                 </li>
 
-                                <li class="list-group-item d-flex justify-content-between p-1">
+                                {{--<li class="list-group-item d-flex justify-content-between p-1">
                                   <span class="font-weight-bold">Period Day : </span>
                                   <span>{{$profileDetails->getPeriodDay()}}</span>
-                                </li>
+                                </li>--}}
                             </ul>
                         </div>
                     </div>
@@ -67,11 +67,6 @@
                             <li class="list-group-item d-flex justify-content-between p-1">
                               <span class="font-weight-bold">Payment Type : </span>
                               <span>{{$profileDetails->getPaymentType()}}</span>
-                            </li>
-
-                            <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Currency Type ID : </span>
-                              <span>{{$profileDetails->getCurrencyTypeID()}}</span>
                             </li>
 
                         </ul>
@@ -136,21 +131,6 @@
                               <span>{{$profileDetails->getShipPhone()}}</span>
                             </li>
 
-                            <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Method ID : </span>
-                              <span>{{$profileDetails->getShipMethodID()}}</span>
-                            </li>
-
-                            <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Override Shipping : </span>
-                              <span>{{$profileDetails->getOverrideShipping()}}</span>
-                            </li>
-
-                            <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Override Shipping Total : </span>
-                              <span>{{$profileDetails->getOverrideShippingTotal()}}</span>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
@@ -163,7 +143,7 @@
 
 
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h5 class="font-weight-bold title-style m-0">AUTOSHIP PROFILE`S ITEM</h5>
+                <h5 class="font-weight-bold title-style m-0">PROFILE ITEMS</h5>
                 <h5>
                   <span class="font-weight-bold">Status : </span>
                   <span class="badge badge-success">Active</span>

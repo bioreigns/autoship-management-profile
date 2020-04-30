@@ -29,7 +29,7 @@
                           <ul class="list-group list-group-flush">
 
                               <li class="list-group-item d-flex justify-content-between p-1">
-                                <span class="font-weight-bold">Ship Name : </span> 
+                                <span class="font-weight-bold">Ship Name : </span>
                                 <span>{{$profile->getShipName()}}</span>
                               </li>
 
@@ -44,12 +44,12 @@
                               </li>
 
                               <li class="list-group-item d-flex justify-content-between p-1">
-                                <span class="font-weight-bold">Ship Method : </span> 
+                                <span class="font-weight-bold">Ship Method : </span>
                                 <span>{{$profile->getShipMethod()}}</span>
                               </li>
 
                               <li class="list-group-item d-flex justify-content-between p-1">
-                                <span class="font-weight-bold">Payment Type : </span> 
+                                <span class="font-weight-bold">Payment Type : </span>
                                 <span>{{$profile->getPaymentType()}}</span>
                               </li>
 
@@ -59,7 +59,7 @@
 
                 {{-- items table --}}
                     <div class="card shadow-sm border-0">
-                        <h5 class="card-header border-0">Profile`s Item Information</h5>
+                        <h5 class="card-header border-0">Item Information</h5>
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
 
@@ -86,7 +86,7 @@
               </div>
           </div>
 
-          
+
           {{-- button --}}
           <div class="text-center mt-4">
             {{-- <h5 class="font-weight-bold title-style m-0">AUTOSHIP PROFILE DETAILS</h5> --}}
