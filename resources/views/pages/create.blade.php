@@ -1,3 +1,4 @@
+<?php /** @var $items \DataHead\ByDesignAPI\AutoshipAPI\ArrayOfAutoshipItemDetail */ ?>
 @extends('layouts.app')
 
 @section('content')
@@ -89,10 +90,7 @@
 
                                         <div class="form-group">
                                             <label class="font-weight-bold"  for="state">State / Province : </label>
-                                            <select class="custom-select" name="state" id="state">
-                                                <option selected>Choose...</option>
-                                                <option value="CA">CA</option>
-                                              </select>
+                                            <input type="text" class="form-control" id="state" name="state">
                                         </div>
 
                                         <div class="form-group">
@@ -137,7 +135,7 @@
                                 <div class="row">
 
                                     <div class="col-12 col-sm-6 col-md-4">
-                                        
+
                                     </div>
 
                                 </div>
@@ -150,7 +148,7 @@
                         <hr class="mt-5 seperator-full">
 
                         <div class="card shadow-sm border-0 border-0 mb-5">
-                            <h5 class="card-header border-0">Choose Item</h5>
+                            <h5 class="card-header border-0">Choose Items</h5>
                             <div class="card-body">
 
                                 <table class="table">
@@ -165,16 +163,18 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th><img class="img-fluid" src="https://picsum.photos/100/100" width="100" height="100" alt=""></th>
-                                        <td>AS-Gummy</td>
-                                        <td>Gummy Bears</td>
-                                        <td>35.00</td>
-                                        <td>53.54</td>
-                                        <td>
-                                            <input type="number">
-                                        </td>
-                                    </tr>
+                                    @foreach($items as $item)
+                                        <tr>
+                                            <th><img src="https://extranet.bydesign.com/Bioreigns/Shopping/Images/{{ $item->getSmallImage() }}" alt="" width="150px"></th>
+                                            <td>{{ $item->getItemNumber() }}</td>
+                                            <td>{{ $item->getDescription() }}</td>
+                                            <td>{{ $item->getVolume2() }}</td>
+                                            <td>{{ $item->getPrice() }}</td>
+                                            <td>
+                                                <input type="number" class="form-control qty" name="items[{{ $item->getItemNumber() }}][quantity]" value="0">
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
 

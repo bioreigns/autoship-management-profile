@@ -2,10 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI;
+use DataHead\ByDesignAPI\AutoshipAPI\Credentials;
+use DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipItems;
 use Illuminate\Http\Request;
 
 class AutoshipsProfileController extends Controller
 {
+    private $autoShipAPI;
+    private $credentials;
+
+    public function __construct()
+    {
+        $this->autoShipAPI = new AutoShipAPI();
+        $this->credentials = new Credentials();
+        $this->credentials->setUsername(config('bydesign.username'));
+        $this->credentials->setPassword(config('bydesign.password'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,12 +61,13 @@ class AutoshipsProfileController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-
-        return view('pages.create');
+        $requestParams = new GetAutoshipItems($this->credentials, "", "1114", "");
+        $items = $this->autoShipAPI->GetAutoshipItems($requestParams);
+        return view('pages.create', ['items' => $items->getGetAutoshipItemsResult()]);
     }
 
     /**
@@ -124,7 +139,7 @@ class AutoshipsProfileController extends Controller
         // get create new profile
         $createRepProfileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\CreateRepProfile($Credentials, '1114', 1 , $ShipAddress, $StartDate, $StopDate, 'Monthly', $PeriodDay, 1009, 1 , $OverrideShipping, $ShippingTotal);
         $CreateRepProfileResult = $autoShipAPI->CreateRepProfile($createRepProfileAPI)->GetCreateRepProfileResult();
-    
+
         return redirect()->route('/')->with($CreateRepProfileResult);
     }
 
