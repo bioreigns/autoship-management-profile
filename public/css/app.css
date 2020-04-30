@@ -11005,9 +11005,8 @@ body {
   border-color: #bf9332 !important;
 }
 
-.title-style {
-  border-right: 5px !important;
-  border-color: #bf9332 !important;
+.item-title {
+  height: 60px !important;
 }
 
 /* footer */

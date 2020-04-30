@@ -3,21 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Resources\Autoship as AutoshipResource;
 
 class AutoshipsProfileController extends Controller
 {
-
-    // public function __construct($Credentials, $ProfileID, $RepNumber, $CustomerNumber)
-    // {
-    //     // $Credentials->autoshipAPI = new \DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI();
-    //     // $credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
-    //     $this->Credentials = $Credentials;
-    //     $this->ProfileID = $ProfileID;
-    //     $this->RepNumber = $RepNumber;
-    //     $this->CustomerNumber = $CustomerNumber;
-    // }
     /**
      * Display a listing of the resource.
      *
@@ -63,6 +51,7 @@ class AutoshipsProfileController extends Controller
      */
     public function create()
     {
+
         return view('pages.create');
     }
 
@@ -74,8 +63,69 @@ class AutoshipsProfileController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedInput = $request->validate([
+            // 'BCNumber' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'street1' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postalCode' => 'required',
+            'county' => 'required',
+            'country' => 'required',
+            'phone' => 'required',
+            'startDate' => 'required',
+            'stopDate' => 'required',
+            'PeriodDay' => 'required',
+            'OverrideShipping' => 'required',
+            'ShippingTotal' => 'required',
+        ]);
 
+        if($validatedInput == true){
+            // $BCNumber = $request->get('BCNumber');
+            // ship address
+            $firstName = $request->get('firstName');
+            $lastName = $request->get('lastName');
+            $street1 = $request->get('street1');
+            $street2 = $request->get('street2');
+            $city = $request->get('city');
+            $state = $request->get('state');
+            $postalCode = $request->get('postalCode');
+            $county = $request->get('county');
+            $country = $request->get('country');
+            $phone = $request->get('phone');
 
+            $StartDate = $request->get('startDate');
+            $StopDate = $request->get('stopDate');
+            $PeriodDay = $request->get('periodDay');
+            $OverrideShipping = $request->get('overrideShipping');
+            $ShippingTotal = $request->get('shippingTotal');
+        }else{
+           return redirect()->route('/');
+        }
+
+        $autoShipAPI = new \DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI();
+        $Credentials = new \DataHead\ByDesignAPI\AutoshipAPI\Credentials();
+        $Credentials->setUsername(config('bydesign.username'));
+        $Credentials->setPassword(config('bydesign.password'));
+
+        $ShipAddress = new \DataHead\ByDesignAPI\AutoshipAPI\AutoshipAddress();
+        $ShipAddress->setFirstname($firstName);
+        $ShipAddress->setLastname($lastName);
+        $ShipAddress->setStreet1($street1);
+        $ShipAddress->setStreet2($street2);
+        $ShipAddress->setCity($city);
+        $ShipAddress->setState($state);
+        $ShipAddress->setPostalCode($postalCode);
+        $ShipAddress->setCounty($county);
+        $ShipAddress->setCountry($country);
+        $ShipAddress->setPhone($phone);
+
+        // get create new profile
+        $createRepProfileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\CreateRepProfile($Credentials, '1114', 1 , $ShipAddress, $StartDate, $StopDate, 'Monthly', $PeriodDay, 1009, 1 , $OverrideShipping, $ShippingTotal);
+        $CreateRepProfileResult = $autoShipAPI->CreateRepProfile($createRepProfileAPI)->GetCreateRepProfileResult();
+    
+        return redirect()->route('/')->with($CreateRepProfileResult);
     }
 
     /**

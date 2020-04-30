@@ -7,7 +7,7 @@
     <div class="mb-5">
         <div class="divider d-flex justify-content-between">
             <h4 class="font-weight-bold">AUTOSHIP PROFILES LIST</h4>
-            <a href="/add-authoship-profile" class="link font-weight-bold">ADD AUTOSHIP PROFILE</a>
+            <a href="/create-authoship-profile" class="link font-weight-bold">ADD AUTOSHIP PROFILE</a>
         </div>
         <hr class="seperator mr-auto">
     </div>
