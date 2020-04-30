@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
 <div class="col-12 col-sm-12 col-md-11 mx-auto bg-white shadow main-content">
-    
+
     <div class="mb-5">
         <div class="divider d-flex justify-content-between">
             <h4 class="font-weight-bold">AUTOSHIP PROFILES INFO </h4>
@@ -32,27 +32,27 @@
                             <ul class="list-group list-group-flush">
 
                                 <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Start Date : </span> 
+                                  <span class="font-weight-bold">Start Date : </span>
                                   <span>{{$profileDetails->getStartDate()->format('Y-m-d')}}</span>
                                 </li>
-                                
+
                                 <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Stop Date : </span> 
+                                  <span class="font-weight-bold">Stop Date : </span>
                                   <span>{{$profileDetails->getStopDate()->format('Y-m-d')}}</span>
                                 </li>
-                                
+
                                 <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Next Ship Date : </span> 
+                                  <span class="font-weight-bold">Next Ship Date : </span>
                                   <span>{{$profileDetails->getNextShipDate()->format('Y-m-d')}}</span>
                                 </li>
-                                
+
                                 <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Period Type : </span> 
+                                  <span class="font-weight-bold">Period Type : </span>
                                   <span>{{$profileDetails->getPeriodType()}}</span>
                                 </li>
-                                
+
                                 <li class="list-group-item d-flex justify-content-between p-1">
-                                  <span class="font-weight-bold">Period Day : </span> 
+                                  <span class="font-weight-bold">Period Day : </span>
                                   <span>{{$profileDetails->getPeriodDay()}}</span>
                                 </li>
                             </ul>
@@ -63,17 +63,17 @@
                       <h5 class="card-header">Payment Information</h5>
                       <div class="card-body">
                         <ul class="list-group list-group-flush">
-  
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Payment Type : </span> 
+                              <span class="font-weight-bold">Payment Type : </span>
                               <span>{{$profileDetails->getPaymentType()}}</span>
                             </li>
-  
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Currency Type ID : </span> 
+                              <span class="font-weight-bold">Currency Type ID : </span>
                               <span>{{$profileDetails->getCurrencyTypeID()}}</span>
                             </li>
-  
+
                         </ul>
                       </div>
                     </div>
@@ -87,67 +87,67 @@
                         <ul class="list-group list-group-flush">
 
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Name : </span> 
+                              <span class="font-weight-bold">Ship Name : </span>
                               <span>{{$profileDetails->getShipName()}}</span>
                             </li>
-                            
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Street 1 : </span> 
+                              <span class="font-weight-bold">Ship Street 1 : </span>
                               <span>{{$profileDetails->getShipStreet1()}}</span>
                             </li>
-                            
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Street 2 : </span> 
+                              <span class="font-weight-bold">Ship Street 2 : </span>
                               <span>{{$profileDetails->getShipStreet2()}}</span>
                             </li>
-                            
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship City : </span> 
+                              <span class="font-weight-bold">Ship City : </span>
                               <span>{{$profileDetails->getShipCity()}}</span>
                             </li>
-                            
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship State : </span> 
+                              <span class="font-weight-bold">Ship State : </span>
                               <span>{{$profileDetails->getShipState()}}</span>
                             </li>
 
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Postal Code : </span> 
+                              <span class="font-weight-bold">Ship Postal Code : </span>
                               <span>{{$profileDetails->getShipPostalCode()}}</span>
                             </li>
-    
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship County : </span> 
+                              <span class="font-weight-bold">Ship County : </span>
                               <span>{{$profileDetails->getShipCounty()}}</span>
                             </li>
-    
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Country : </span> 
+                              <span class="font-weight-bold">Ship Country : </span>
                               <span>{{$profileDetails->getShipCountry()}}</span>
                             </li>
-    
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Method : </span> 
+                              <span class="font-weight-bold">Ship Method : </span>
                               <span>{{$profileDetails->getShipMethod()}}</span>
                             </li>
 
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Phone : </span> 
+                              <span class="font-weight-bold">Ship Phone : </span>
                               <span>{{$profileDetails->getShipPhone()}}</span>
                             </li>
-  
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Ship Method ID : </span> 
+                              <span class="font-weight-bold">Ship Method ID : </span>
                               <span>{{$profileDetails->getShipMethodID()}}</span>
                             </li>
-    
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Override Shipping : </span> 
+                              <span class="font-weight-bold">Override Shipping : </span>
                               <span>{{$profileDetails->getOverrideShipping()}}</span>
                             </li>
-    
+
                             <li class="list-group-item d-flex justify-content-between p-1">
-                              <span class="font-weight-bold">Override Shipping Total : </span> 
+                              <span class="font-weight-bold">Override Shipping Total : </span>
                               <span>{{$profileDetails->getOverrideShippingTotal()}}</span>
                             </li>
 
@@ -161,7 +161,7 @@
 
             <hr class="mt-5 seperator-full">
 
-          
+
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h5 class="font-weight-bold title-style m-0">AUTOSHIP PROFILE`S ITEM</h5>
                 <h5>
@@ -170,7 +170,7 @@
               </h5>
             </div>
 
-            
+
             <div class="items-wrapper">
                 <div class="row">
                   @foreach ($profileItems as $profileItem)
@@ -178,7 +178,7 @@
                         No Item found.
                           @continue
                       @endif
-                      <div class="col-12 col-md-6">
+                      <div class="col-12 col-lg-6 col-xl-4">
                           <div class="card border-0 shadow-sm my-3">
                               <div class="row">
                                 <div class="col-4">
@@ -208,15 +208,15 @@
 
                       {{-- end col --}}
                       </div>
-              
+
                         @endforeach
-                  
+
                 {{-- end row --}}
                 </div>
-          
+
           {{-- end items wrapper --}}
             </div>
-           
+
         </div>
     </div>
 
