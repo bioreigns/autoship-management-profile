@@ -174,27 +174,9 @@
                                             <input type="text" class="form-control" name="bill_postalCode" id="bill_postalCode" aria-describedby="bill_postalCode">
                                         </div>
 
-                                        <div class="form-group">
-                                            <label class="font-weight-bold"  for="bill_county">County : </label>
-                                            <input type="text" class="form-control" name="bill_county" id="bill_county">
-                                        </div>
-
                                     </div>
 
                                     <div class="col-12 col-sm-6 col-md-4">
-
-                                        <div class="form-group">
-                                            <label class="font-weight-bold"  for="bill_country">Country : </label>
-                                            <select class="custom-select" name="bill_country" id="bill_country">
-                                                <option value="USA">USA</option>
-                                                <option value="CANADA">Canada</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="font-weight-bold" for="bill_phone">Phone : </label>
-                                            <input type="text" class="form-control" name="bill_phone" id="bill_phone" aria-describedby="bill_phone">
-                                        </div>
 
                                         <div class="form-group">
                                             <label for="cardNumber" class="font-weight-bold">Card Number : </label>

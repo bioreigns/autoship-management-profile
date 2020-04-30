@@ -96,7 +96,18 @@ class AutoshipsProfileController extends Controller
             'county' => 'required',
             'country' => 'required',
             'phone' => 'required',
-            'items' => 'required'
+            'items' => 'required',
+            'bill_firstName' => 'required',
+            'bill_lastName' => 'required',
+            'bill_street1' => 'required',
+            'bill_city' => 'required',
+            'bill_state' => 'required',
+            'bill_postalCode' => 'required',
+            'bill_county' => 'required',
+            'bill_country' => 'required',
+            'cardNumber' => 'required',
+            'expMonth' => 'required',
+            'expYear' => 'required'
         ]);
 
         // Create the AutoShip address object
@@ -139,6 +150,16 @@ class AutoshipsProfileController extends Controller
         }
 
         $paymentInfo = new AutoShipCCProfile();
+        $paymentInfo->setNameOnCard($request->post('bill_firstName') . ' ' . $request->post('bill_last_name'));
+        $paymentInfo->setCardNumber($request->post('cardNumber'));
+        $paymentInfo->setExpDate($request->post('expMonth') . '/' . $request->post('expYear'));
+        $paymentInfo->setStreet1($request->post('bill_street1'));
+        if($request->has('bill_street2'))
+            $paymentInfo->setStreet2($request->post('bill_street2'));
+        $paymentInfo->setCity($request->post('bill_city'));
+        $paymentInfo->setState($request->post('bill_state'));
+        $paymentInfo->setPostalCode($request->post('bill_postalCode'));
+
         $requestParams = new AddPaymentProfile_CC($this->credentials, $profileId, $paymentInfo);
         $this->autoShipAPI->AddPaymentProfile_CC($requestParams);
 
