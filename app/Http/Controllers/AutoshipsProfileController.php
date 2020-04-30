@@ -103,8 +103,6 @@ class AutoshipsProfileController extends Controller
             'bill_city' => 'required',
             'bill_state' => 'required',
             'bill_postalCode' => 'required',
-            'bill_county' => 'required',
-            'bill_country' => 'required',
             'cardNumber' => 'required',
             'expMonth' => 'required',
             'expYear' => 'required'

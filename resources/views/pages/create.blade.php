@@ -20,6 +20,13 @@
                 <h5 class="font-weight-bold title-style m-0">FILL OUT FORM</h5>
             </div>
 
+            <!-- alert -->
+            @foreach($errors->all() as $error)
+                <div class="alert alert-danger">
+                    {{ $error }}
+                </div>
+            @endforeach
+
             <form action="{{url('/store-authoship-profile')}}" method="post">
                 @csrf
                 <div class="row">
