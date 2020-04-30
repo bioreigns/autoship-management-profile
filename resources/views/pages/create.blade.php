@@ -136,6 +136,86 @@
 
                                     <div class="col-12 col-sm-6 col-md-4">
 
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" for="bill_firstName">First Name : </label>
+                                            <input type="text" class="form-control" name="bill_firstName" id="bill_firstName" aria-describedby="firstName">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" for="lastName">Last Name : </label>
+                                            <input type="text" class="form-control" name="bill_lastName" id="bill_lastName" aria-describedby="lastName">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" for="bill_street1">Street 1 : </label>
+                                            <input type="text" class="form-control" name="bill_street1" id="bill_street1" aria-describedby="street1">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" for="bill_street2">Street 2 : </label>
+                                            <input type="text" class="form-control" name="bill_street2" id="bill_street2" aria-describedby="street2">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold"  for="bill_city">City : </label>
+                                            <input type="text" class="form-control" name="bill_city" id="bill_city">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="font-weight-bold"  for="bill_state">State / Province : </label>
+                                            <input type="text" class="form-control" id="bill_state" name="bill_state">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" for="bill_postalCode">Postal Code : </label>
+                                            <input type="text" class="form-control" name="bill_postalCode" id="bill_postalCode" aria-describedby="bill_postalCode">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="font-weight-bold"  for="bill_county">County : </label>
+                                            <input type="text" class="form-control" name="bill_county" id="bill_county">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-4">
+
+                                        <div class="form-group">
+                                            <label class="font-weight-bold"  for="bill_country">Country : </label>
+                                            <select class="custom-select" name="bill_country" id="bill_country">
+                                                <option value="USA">USA</option>
+                                                <option value="CANADA">Canada</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" for="bill_phone">Phone : </label>
+                                            <input type="text" class="form-control" name="bill_phone" id="bill_phone" aria-describedby="bill_phone">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="cardNumber" class="font-weight-bold">Card Number : </label>
+                                            <input type="text" class="form-control" name="cardNumber" id="cardNumber">
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-12 col-md-4 form-group">
+                                                <label for="expMonth" class="font-weight-bold">EXP Month : </label>
+                                                <input type="number" class="form-control" id="expMonth" name="expMonth">
+                                            </div>
+                                            <div class="col-12 col-md-4">
+                                                <label for="expYear" class="font-weight-bold">EXP Year : </label>
+                                                <input type="number" class="form-control" id="expYear" name="expYear">
+                                            </div>
+                                            <div class="col-12 col-md-4">
+                                                <label for="cvv" class="font-weight-bold">CVV : </label>
+                                                <input type="number" class="form-control" id="cvv" name="cvv">
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>
