@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
 <div class="col-12 col-sm-12 col-md-11 mx-auto bg-white shadow main-content">
 
     <div class="mb-5">
@@ -16,7 +16,7 @@
         <div class="card-body">
 
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h5 class="font-weight-bold title-style m-0">FILL-UP FORM</h5>
+                <h5 class="font-weight-bold title-style m-0">FILL OUT FORM</h5>
             </div>
 
             <form action="{{url('/store-authoship-profile')}}" method="post">
@@ -26,35 +26,27 @@
                     <div class="col-12">
 
                         <div class="card border-0 shadow-sm mb-5">
-                            <h5 class="card-header border-0">Dates Information</h5>
+                            <h5 class="card-header border-0">Dates</h5>
                             <div class="card-body">
 
                                 <div class="row">
 
-                                    <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="col-12 col-sm-6">
                                         <div class="form-group">
                                             <label class="font-weight-bold" for="startDate">Start Date:</label>
                                             <input type="date" class="form-control" name="startDate" id="startDate" aria-describedby="startDate">
                                         </div>
-                
+
                                     </div>
 
-                                    <div class="col-12 col-sm-6 col-md-4">
+                                    <div class="col-12 col-sm-6">
                                         <div class="form-group">
                                             <label class="font-weight-bold" for="stopDate">Stop Date:</label>
                                             <input type="date" class="form-control" name="stopDate" id="stopDate" aria-describedby="stopDate">
                                         </div>
                                     </div>
-
-                                    <div class="col-12 col-sm-6 col-md-4">
-                                        <div class="form-group">
-                                            <label class="font-weight-bold" for="periodDay">Period Day : </label>
-                                            <input type="text" class="form-control" name="periodDay" id="periodDay" aria-describedby="periodDay">
-                                        </div>
-                                    </div>
-
                                 </div>
-                                
+
 
                             </div>
                         </div>
@@ -76,32 +68,27 @@
                                             <label class="font-weight-bold" for="lastName">Last Name : </label>
                                             <input type="text" class="form-control" name="lastName" id="shipName" aria-describedby="lastName">
                                         </div>
-                
+
                                         <div class="form-group">
-                                            <label class="font-weight-bold" for="street1">Ship Street 1 : </label>
+                                            <label class="font-weight-bold" for="street1">Street 1 : </label>
                                             <input type="text" class="form-control" name="street1" id="street1" aria-describedby="street1">
                                         </div>
-                
+
                                         <div class="form-group">
-                                            <label class="font-weight-bold" for="street2">Ship Street 2 : </label>
+                                            <label class="font-weight-bold" for="street2">Street 2 : </label>
                                             <input type="text" class="form-control" name="street2" id="street2" aria-describedby="street2">
                                         </div>
 
                                     </div>
 
-                                    <div class="col-12 col-sm-6 col-md-4">    
+                                    <div class="col-12 col-sm-6 col-md-4">
                                         <div class="form-group">
-                                            <label class="font-weight-bold"  for="city">Ship City : </label>
-                                            <select class="custom-select" name="city" id="city">
-                                                <option selected>Choose...</option>
-                                                <option value="LA MIRADA">LA MIRADA</option>
-                                                <option value="LAMIRADA">LAMIRADA</option>
-                                                <option value="MIRADA">MIRADA</option>
-                                              </select>
+                                            <label class="font-weight-bold"  for="city">City : </label>
+                                            <input type="text" class="form-control" name="city" id="city">
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="font-weight-bold"  for="state">Ship State : </label>
+                                            <label class="font-weight-bold"  for="state">State / Province : </label>
                                             <select class="custom-select" name="state" id="state">
                                                 <option selected>Choose...</option>
                                                 <option value="CA">CA</option>
@@ -109,16 +96,13 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="font-weight-bold" for="postalCode">Ship Postal Code : </label>
+                                            <label class="font-weight-bold" for="postalCode">Postal Code : </label>
                                             <input type="text" class="form-control" name="postalCode" id="postalCode" aria-describedby="postalCode">
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="font-weight-bold"  for="county">Ship County : </label>
-                                            <select class="custom-select" name="county" id="county">
-                                                <option selected>Choose...</option>
-                                                <option value="Los Angeles">Los Angeles</option>
-                                              </select>
+                                            <label class="font-weight-bold"  for="county">County : </label>
+                                            <input type="text" class="form-control" name="county" id="county">
                                         </div>
 
                                     </div>
@@ -126,32 +110,22 @@
                                     <div class="col-12 col-sm-6 col-md-4">
 
                                         <div class="form-group">
-                                            <label class="font-weight-bold"  for="country">Ship Country : </label>
+                                            <label class="font-weight-bold"  for="country">Country : </label>
                                             <select class="custom-select" name="country" id="country">
-                                                <option selected>Choose...</option>
                                                 <option value="USA">USA</option>
+                                                <option value="CANADA">Canada</option>
                                               </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="font-weight-bold" for="phone">Ship Phone : </label>
+                                            <label class="font-weight-bold" for="phone">Phone : </label>
                                             <input type="text" class="form-control" name="phone" id="phone" aria-describedby="phone">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="font-weight-bold" for="overrideShipping">Override Shipping : </label>
-                                            <input type="text" class="form-control" name="overrideShipping" id="overrideShipping" aria-describedby="overrideShipping">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="font-weight-bold" for="shippingTotal">Shipping Total : </label>
-                                            <input type="text" class="form-control" name="shippingTotal" id="shippingTotal" aria-describedby="shippingTotal">
                                         </div>
 
                                     </div>
 
                                 </div>
-                                
+
 
                             </div>
                         </div>
@@ -163,23 +137,11 @@
                                 <div class="row">
 
                                     <div class="col-12 col-sm-6 col-md-4">
-
-                                        <div class="form-group">
-                                            <label class="font-weight-bold"  for="paymentType">Payment Type : </label>
-                                            <select class="custom-select" name="paymentType" id="paymentType">
-                                                <option selected>Choose...</option>
-                                                <option value="1">Credit Card</option>
-                                              </select>
-                                        </div>
-                
-                                        <div class="form-group">
-                                            <label class="font-weight-bold" for="currencyTypeID">Currency Type ID : </label>
-                                            <input type="text" class="form-control" name="currencyTypeID" id="currencyTypeID" aria-describedby="currencyTypeID">
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
-                                
+
 
                             </div>
                         </div>
@@ -190,7 +152,7 @@
                         <div class="card shadow-sm border-0 border-0 mb-5">
                             <h5 class="card-header border-0">Choose Item</h5>
                             <div class="card-body">
-                                
+
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -224,7 +186,7 @@
                         </div>
 
                     </div>
-                    
+
                 </div>
             </form>
 
