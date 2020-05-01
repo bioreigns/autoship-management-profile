@@ -21,6 +21,6 @@ Route::get('/', 'AutoshipsProfileController@index');
 Route::get('/create-authoship-profile', 'AutoshipsProfileController@create');
 Route::post('/store-authoship-profile', 'AutoshipsProfileController@store');
 Route::get('/view-authoship-profile/{id}', 'AutoshipsProfileController@show');
-Route::get('/edit-authoship-profile', 'AutoshipsProfileController@edit');
+Route::get('/edit-authoship-profile/{id}', 'AutoshipsProfileController@edit');
 
 

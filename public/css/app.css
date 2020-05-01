@@ -11009,6 +11009,11 @@ body {
   height: 60px !important;
 }
 
+.choose-item-table {
+  height: 400px !important;
+  overflow: auto;
+}
+
 /* footer */
 
 footer {
@@ -11044,9 +11049,4 @@ footer {
     height: 180px;
   }
 }
-
-.table th, .table td {
-    vertical-align: middle;
-}
-
 

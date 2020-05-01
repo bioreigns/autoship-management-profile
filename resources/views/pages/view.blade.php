@@ -8,7 +8,7 @@
         <div class="divider d-flex justify-content-between">
             <h4 class="font-weight-bold">PROFILE INFO</h4>
             <div class="">
-                <a href="/edit-authoship-profile" class="link font-weight-bold mr-3">EDIT AUTOSHIP PROFILE</a>
+            <a href="/edit-authoship-profile/{{$profileDetails->GetProfileID()}}" class="link font-weight-bold mr-3">EDIT AUTOSHIP PROFILE</a>
                 <a href="/" class="link font-weight-bold">BACK</a>
             </div>
         </div>
@@ -161,11 +161,11 @@
                       <div class="col-12 col-lg-6 col-xl-4">
                           <div class="card border-0 shadow-sm my-3">
                               <div class="row">
-                                <div class="col-3 p-0">
+                                <div class="col-4">
                                   <img class="img-fluid" src="https://extranet.bydesign.com/Bioreigns/Shopping/Images/{{ $profileItem->getSmallImage() }}" alt="Card image cap">
                                 </div>
 
-                                <div class="col-9">
+                                <div class="col-8">
                                   <div class="card-body">
                                     {{$profileItem->getItemNumber()}}
                                     <div class="item-title">
