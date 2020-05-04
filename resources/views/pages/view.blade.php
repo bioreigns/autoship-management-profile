@@ -8,7 +8,8 @@
         <div class="divider d-flex justify-content-between">
             <h4 class="font-weight-bold">PROFILE INFO</h4>
             <div class="">
-            <a href="/edit-authoship-profile/{{$profileDetails->GetProfileID()}}" class="link font-weight-bold mr-3">EDIT AUTOSHIP PROFILE</a>
+                <a href="{{ url('/delete-profile/' . $profileDetails->GetProfileID()) }}" class="link font-weight-bold mr-3">DELETE PROFILE</a>
+                <a href="/edit-authoship-profile/{{$profileDetails->GetProfileID()}}" class="link font-weight-bold mr-3">EDIT PROFILE</a>
                 <a href="/" class="link font-weight-bold">BACK</a>
             </div>
         </div>

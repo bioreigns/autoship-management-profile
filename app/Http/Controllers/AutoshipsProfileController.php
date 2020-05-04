@@ -7,6 +7,7 @@ use DataHead\ByDesignAPI\AutoshipAPI\AddPaymentProfile_CC;
 use DataHead\ByDesignAPI\AutoshipAPI\AutoshipAddress;
 use DataHead\ByDesignAPI\AutoshipAPI\AutoShipAPI;
 use DataHead\ByDesignAPI\AutoshipAPI\AutoShipCCProfile;
+use DataHead\ByDesignAPI\AutoshipAPI\CancelProfile;
 use DataHead\ByDesignAPI\AutoshipAPI\Credentials;
 use DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipItems;
 use Illuminate\Http\Request;
@@ -146,7 +147,6 @@ class AutoshipsProfileController extends Controller
             $requestParams = new AddItem($this->credentials, $profileId, $key, $value);
             Log::info("Attempting to add $key ($value) to the autoship profile");
             $result = $this->autoShipAPI->AddItem($requestParams);
-            Log::info($result->getAddItemResult()->getMessage());
         }
 
         $paymentInfo = new AutoShipCCProfile();
@@ -313,10 +313,12 @@ class AutoshipsProfileController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        $request = new CancelProfile($this->credentials, $id);
+        $this->autoShipAPI->CancelProfile($request);
+        return response()->redirectTo('/');
     }
 }
