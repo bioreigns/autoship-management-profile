@@ -169,7 +169,7 @@ class AutoshipsProfileController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
@@ -195,26 +195,20 @@ class AutoshipsProfileController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
-        $autoShipAPI = new AutoShipAPI();
-        $Credentials = new Credentials();
-        $Credentials->setUsername(config('bydesign.username'));
-        $Credentials->setPassword(config('bydesign.password'));
-
         // get profile details
-        $profileDetailsAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileDetails($Credentials, $id);
-        $profileDetailsResult = $autoShipAPI->GetProfileDetails($profileDetailsAPI)->getGetProfileDetailsResult();
-        $profileDetails = $profileDetailsResult;
+        $profileDetailsAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileDetails($this->credentials, $id);
+        $profileDetailsResult = $this->autoShipAPI->GetProfileDetails($profileDetailsAPI)->getGetProfileDetailsResult();
 
         //get profile's items
-        $itemsAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileItemDetails($Credentials, $id);
-        $profileItemResult = $autoShipAPI->GetProfileItemDetails($itemsAPI)->getGetProfileItemDetailsResult();
+        $itemsAPI = new \DataHead\ByDesignAPI\AutoshipAPI\GetProfileItemDetails($this->credentials, $id);
+        $profileItemResult = $this->autoShipAPI->GetProfileItemDetails($itemsAPI)->getGetProfileItemDetailsResult();
         $profileItems = $profileItemResult;
 
-        return view('pages.edit', ['profileDetails' => $profileDetails,'profileItems' => $profileItems]);
+        return view('pages.edit', ['profileDetails' => $profileDetailsResult, 'profileItems' => $profileItems]);
     }
 
     /**
