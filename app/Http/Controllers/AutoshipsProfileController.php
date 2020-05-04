@@ -11,6 +11,7 @@ use DataHead\ByDesignAPI\AutoshipAPI\Credentials;
 use DataHead\ByDesignAPI\AutoshipAPI\GetAutoshipItems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class AutoshipsProfileController extends Controller
 {
@@ -86,7 +87,6 @@ class AutoshipsProfileController extends Controller
         $validatedInput = $request->validate([
             // 'BCNumber' => 'required',
             'startDate' => 'required|date',
-            'stopDate' => 'required|date',
             'firstName' => 'required',
             'lastName' => 'required',
             'street1' => 'required',
@@ -124,7 +124,7 @@ class AutoshipsProfileController extends Controller
             $autoShipAddress->setStreet2($request->post('street2'));
 
         $startDate = Carbon::parse($request->post('startDate'));
-        $endDate = Carbon::parse($request->post('stopDate'));
+        $endDate = Carbon::parse($request->post('startDate'))->addYears(100);
 
         // get create new profile
         $createRepProfileAPI = new \DataHead\ByDesignAPI\AutoshipAPI\CreateRepProfile($this->credentials, '1114', 1, $autoShipAddress, $startDate, $endDate, 1, $startDate->day, 1009, 1 , "", "");
@@ -143,8 +143,10 @@ class AutoshipsProfileController extends Controller
         foreach ($request->post('items') as $key => $value) {
             if($value <= 0)
                 continue;
-            $requestParams = new AddItem($this->credentials, $profileId, $key,$value);
-            $this->autoShipAPI->AddItem($requestParams);
+            $requestParams = new AddItem($this->credentials, $profileId, $key, $value);
+            Log::info("Attempting to add $key ($value) to the autoship profile");
+            $result = $this->autoShipAPI->AddItem($requestParams);
+            Log::info($result->getAddItemResult()->getMessage());
         }
 
         $paymentInfo = new AutoShipCCProfile();

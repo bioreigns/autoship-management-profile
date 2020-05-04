@@ -44,14 +44,6 @@
                                             <label class="font-weight-bold" for="startDate">Start Date:</label>
                                             <input type="date" class="form-control" value="<?php echo \Illuminate\Support\Carbon::tomorrow()->format('Y-m-d'); ?>" name="startDate" id="startDate" aria-describedby="startDate">
                                         </div>
-
-                                    </div>
-
-                                    <div class="col-12 col-sm-6">
-                                        <div class="form-group">
-                                            <label class="font-weight-bold" for="stopDate">Stop Date:</label>
-                                            <input type="date" class="form-control" value="<?php echo \Illuminate\Support\Carbon::tomorrow()->addYears(2000)->format('Y-m-d'); ?>" name="stopDate" id="stopDate" aria-describedby="stopDate">
-                                        </div>
                                     </div>
                                 </div>
 
