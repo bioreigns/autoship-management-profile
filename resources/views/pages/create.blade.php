@@ -42,7 +42,7 @@
                                     <div class="col-12 col-sm-6">
                                         <div class="form-group">
                                             <label class="font-weight-bold" for="startDate">Start Date:</label>
-                                            <input type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" name="startDate" id="startDate" aria-describedby="startDate" readonly>
+                                            <input type="date" class="form-control" value="<?php echo \Illuminate\Support\Carbon::tomorrow()->format('Y-m-d'); ?>" name="startDate" id="startDate" aria-describedby="startDate">
                                         </div>
 
                                     </div>
