@@ -13,6 +13,11 @@
     </div>
 
 <div class="row">
+@if($profiles->count() == 1)
+    <div class="col-12 col-md-6">
+        <p>No Profiles Found</p>
+    </div>
+@else
 @foreach ($profiles as $key => $profile)
   <div class="col-12 col-md-6">
 
@@ -99,7 +104,8 @@
     </div>
 
   </div>
-  @endforeach
+@endforeach
+@endif
 </div>
 
 
