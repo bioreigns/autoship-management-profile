@@ -236,7 +236,7 @@
                                     @foreach($items as $item)
                                         <tr>
                                             <td>
-                                                <input type="number" class="form-control qty" value="{{old('lastName')}}" name="items[{{ $item->getItemNumber() }}]" value="0">
+                                                <input type="number" class="form-control qty" name="items[{{ $item->getItemNumber() }}]" value="0">
                                             </td>
                                             <th><img src="https://extranet.bydesign.com/Bioreigns/Shopping/Images/{{ $item->getSmallImage() }}" alt="" width="150px"></th>
                                             <td>{{ $item->getItemNumber() }}</td>

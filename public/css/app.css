@@ -11050,3 +11050,7 @@ footer {
   }
 }
 
+.table th, .table td {
+    vertical-align: middle !important;
+}
+
