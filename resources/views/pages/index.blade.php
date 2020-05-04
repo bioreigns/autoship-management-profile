@@ -13,7 +13,7 @@
     </div>
 
 <div class="row">
-@if($profiles->count() == 1)
+@if($profiles->count() == 1 && $profiles->getAutoshipProfiles()[0]->getProfileID() == 0)
     <div class="col-12 col-md-6">
         <p>No Profiles Found</p>
     </div>
